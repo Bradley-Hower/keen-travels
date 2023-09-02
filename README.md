@@ -1,2 +1,2 @@
-# keen-travels
-Travel Checklist Generator
+# Rezzies
+Collectible digital assets
