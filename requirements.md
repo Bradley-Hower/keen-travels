@@ -20,7 +20,7 @@ Rezzies creates a platform for children to become interested in science and the 
 + Rezzy articles will be limited.
 + Graphics will be plain. Just free-use images. 
 
-**Stretch Goals: **
+**Stretch Goals:**
 
 + Solve math problems to earn searches for the day.
 + Improve Graphics.
