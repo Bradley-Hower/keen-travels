@@ -1,4 +1,4 @@
-# Rezzies - Collectible digital assets
+# Rezzies - Collectible Digital Assets
 
 ## User Stories
 
