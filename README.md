@@ -1,5 +1,13 @@
 # Rezzies - Collectible Digital Assets
 
+By Bradley Hower
+
+Rezzies is a collectible digital asset game targeted towards children. With the digital assets, they are limited to "go exploring" once per day to find fossils, or "Rezzies". 
+
+Rezzies creates a platform for children to become interested in science and the natural world. It allows them to learn about past and current plants and animals, along with some important scientific facts. Additionally, it's fun!
+
+Please see requirements.md for more details on features. 
+
 ## User Stories
 
 ### Rezzy Information
@@ -51,16 +59,34 @@ At the top, near the countdowns:
 + Button for user to "pay $4" adds five more searches,
 + Changes all scrounge probabilities for that day to 100%.
 
+## File Structure
+..
+├── index.html
+├── css
+|   ├── reset.css
+|   └── style.css
+└── js
+    ├── app.js
+    └── catalog.js
+
 ## Wireframess
 
-![Untitled drawing](https://github.com/Bradley-Hower/rezzies/assets/139923955/9c25b3bf-78aa-4031-b1cf-34ef0154106e)
+![Rezzy](https://github.com/Bradley-Hower/rezzies/assets/139923955/c64c00e6-f698-4195-a15f-5d3a2e6a708b)
 
-![Untitled drawing (1)](https://github.com/Bradley-Hower/rezzies/assets/139923955/3a003642-5ffe-4551-81d3-e963e6df1785)
+![Rezzy 1](https://github.com/Bradley-Hower/rezzies/assets/139923955/e46b33eb-326b-47c8-9ee8-aa906e64268c)
 
-![Untitled drawing (2)](https://github.com/Bradley-Hower/rezzies/assets/139923955/fec3f09a-a932-4541-80a8-43d2b8ec91fd)
+![Rezzy 2](https://github.com/Bradley-Hower/rezzies/assets/139923955/065ddea9-3329-40a0-82f5-8de375d5a3d5)
 
-![Untitled drawing (3)](https://github.com/Bradley-Hower/rezzies/assets/139923955/6b7889bd-aafd-4933-921c-15c186658f02)
+![Rezzy 3](https://github.com/Bradley-Hower/rezzies/assets/139923955/dbcb9a59-cfea-4e46-a03f-7ae1b94e89fa)
 
-![Untitled drawing (4)](https://github.com/Bradley-Hower/rezzies/assets/139923955/95628b3c-9420-4e7a-b415-5038f7cd6692)
+![Rezzy 4](https://github.com/Bradley-Hower/rezzies/assets/139923955/de0b7863-3fc4-4d98-be1a-0f7a11deab50)
 
-![Untitled drawing (5)](https://github.com/Bradley-Hower/rezzies/assets/139923955/64955175-cd25-4586-8010-32f88345259e)
+![Rezzy 5](https://github.com/Bradley-Hower/rezzies/assets/139923955/11e1ac2b-3bf4-4fea-b5e5-914e568533a1)
+
+![Rezzy 6](https://github.com/Bradley-Hower/rezzies/assets/139923955/271298e5-fab4-40dc-818c-1fab18e85633)
+
+![Rezzy 7](https://github.com/Bradley-Hower/rezzies/assets/139923955/2dbe41ac-5807-423e-920d-2934c101949f)
+
+## Versions
+
+0.1.0 - Set basic site framework. Completed HTML file and created the following files: reset.css, style.css, app.js, catalog.js, license, readme.md, requirements.md, .gitignore, .eslintrc.json.
