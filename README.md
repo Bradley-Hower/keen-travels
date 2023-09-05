@@ -50,3 +50,17 @@ At the top, near the countdowns:
 
 + Button for user to "pay $4" adds five more searches,
 + Changes all scrounge probabilities for that day to 100%.
+
+## Wireframess
+
+![Untitled drawing](https://github.com/Bradley-Hower/rezzies/assets/139923955/9c25b3bf-78aa-4031-b1cf-34ef0154106e)
+
+![Untitled drawing (1)](https://github.com/Bradley-Hower/rezzies/assets/139923955/3a003642-5ffe-4551-81d3-e963e6df1785)
+
+![Untitled drawing (2)](https://github.com/Bradley-Hower/rezzies/assets/139923955/fec3f09a-a932-4541-80a8-43d2b8ec91fd)
+
+![Untitled drawing (3)](https://github.com/Bradley-Hower/rezzies/assets/139923955/6b7889bd-aafd-4933-921c-15c186658f02)
+
+![Untitled drawing (4)](https://github.com/Bradley-Hower/rezzies/assets/139923955/95628b3c-9420-4e7a-b415-5038f7cd6692)
+
+![Untitled drawing (5)](https://github.com/Bradley-Hower/rezzies/assets/139923955/64955175-cd25-4586-8010-32f88345259e)
