@@ -89,8 +89,7 @@ At the top, near the countdowns:
 
 ## Domain Map
 
-![Domain Map](https://github.com/Bradley-Hower/rezzies/assets/139923955/36b8c7cd-543d-47c6-998a-8d04c3ba0070)
-
+![Domain Map](https://github.com/Bradley-Hower/rezzies/assets/139923955/32d94494-c565-40e0-840d-bf90edb77ec3)
 
 ## Versions
 
