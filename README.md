@@ -87,6 +87,11 @@ At the top, near the countdowns:
 
 ![Rezzy 7](https://github.com/Bradley-Hower/rezzies/assets/139923955/2dbe41ac-5807-423e-920d-2934c101949f)
 
+## Domain Map
+
+![Domain Map](https://github.com/Bradley-Hower/rezzies/assets/139923955/36b8c7cd-543d-47c6-998a-8d04c3ba0070)
+
+
 ## Versions
 
 0.1.0 - Set basic site framework. Completed HTML file and created the following files: reset.css, style.css, app.js, catalog.js, license, readme.md, requirements.md, .gitignore, .eslintrc.json.
