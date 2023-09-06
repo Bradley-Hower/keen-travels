@@ -2,9 +2,11 @@
 
 // ** DOM Window ** //
 
-let mainpage = document.getElementById('main-page');
+let mainpage = document.getElementById('beach-page');
 let timer = document.getElementById('timer-page');
 let counts = document.getElementById('counts-page');
+let scroungebuttondiv = document.getElementById('scroungebuttondiv-page');
+let submenutitle = document.getElementById('submenutitle-page');
 
 // ** Rounds and Time Countdowns ** //
 
@@ -78,90 +80,65 @@ let x = setInterval(function() {
   }
 }, 1000);
 
-// ** Welcome div ** //
-let welcomediv = document.createElement('div');
-mainpage.appendChild(welcomediv);
-welcomediv.id = 'welcomediv';
-welcomediv.innerText = 'Rezzies!';
-
-let startbutton = document.createElement('div');
-welcomediv.appendChild(startbutton);
-startbutton.id = 'start';
-startbutton.innerText = 'Start';
-
 // ** Rounds ** //
 
 counts.innerHTML = searchrounds + ' Remaing';
 
-// // ** Welcome div remove listen handler ** //
-let welcomeclear = function() {
-  welcomediv.style.visibility = 'hidden';
-  // localStorage.setItem('welcome', "welcomediv.style.visibility = 'hidden';");
+
+// ** home link ** //
+
+let homelinkrun = function() {
+  let homelink = document.createElement('a');
+  homebutton.appendChild(homelink);
+  homelink.href = 'index.html';
+  homelink.innerText = 'home';
 };
 
-startbutton.addEventListener('click', welcomeclear);
 
-
-// ** Location Menus ** //
-
-let submenus = function() {
-  let beach = document.createElement('div');
-  mainpage.appendChild(beach);
-  beach.id = 'beach';
-  let beachlink = document.createElement('a');
-  beach.appendChild(beachlink);
-  beachlink.href = 'beach.html';
-  beachlink.innerText = 'Beach';
-
-  let mountain = document.createElement('div');
-  mainpage.appendChild(mountain);
-  mountain.id = 'mountain';
-  let mountainlink = document.createElement('a');
-  mountain.appendChild(mountainlink);
-  mountainlink.href = 'mountain.html';
-  mountainlink.innerText = 'Mountain';
-
-  let quarry = document.createElement('div');
-  mainpage.appendChild(quarry);
-  quarry.id = 'quarry';
-  let quarrylink = document.createElement('a');
-  quarry.appendChild(quarrylink);
-  quarrylink.href = 'quarry.html';
-  quarrylink.innerText = 'Quarry';
-
-  let valley = document.createElement('div');
-  mainpage.appendChild(valley);
-  valley.id = 'valley';
-  let valleylink = document.createElement('a');
-  valley.appendChild(valleylink);
-  valleylink.href = 'valley.html';
-  valleylink.innerText = 'Valley';
+let homebuttonrun = function() {
+  let homebutton = document.createElement('div');
+  mainpage.appendChild(homebutton);
+  homebutton.id = 'homebutton';
+  homelinkrun();
 };
 
-submenus();
 
-// ** Scrounge menu ** //
-
-function scroungemenu(){
-  let scroungemenudiv = document.createElement('div');
-  mainpage.appendChild(scroungemenudiv);
-  scroungemenudiv.id = 'scroungemenudiv';
-}
 
 
 // ** Rezzy Generator ** //
 
+function indexnumber() {
+  if(submenutitle.innerText === 'Beach'){
+    return 0;
+  } else if (submenutitle.innerText === 'Mountain'){
+    return 1;
+  } else if (submenutitle.innerText === 'Quarry'){
+    return 2;
+  } else if (submenutitle.innerText === 'Valley'){
+    return 3;
+  }
+}
+
 let rezzygenerator = function () {
+  console.log(indexnumber());
   let chance_randomnumber = randomarraynumber();
-  let location_odds_load = location_odds_array[0];
-  console.log(location_odds_array[0]);
+  let location_odds_load = location_odds_array[indexnumber()];
+  console.log(location_odds_array[indexnumber()]);
   let top_range = location_odds_load * 1000;
   if (chance_randomnumber > 0 && chance_randomnumber < top_range){
+    console.log(chance_randomnumber);
     console.log('success!');
   } else {
     console.log('failure');
   }
+  
 };
+
+// ** Scrounge Click Listener ** //
+
+
+scroungebuttondiv.addEventListener('click', rezzygenerator);
+
 
 
 //** Helper functions (Random Generator, image generator) */   For redesign with any variable number
@@ -171,55 +148,6 @@ function randomarraynumber(){
   return somenumber;
 }
 
-// ** Location success odds generator ** //
-  // 35% - 1-100
-  // 40% - 101-200
-  // 45% - 201-300
-  // 50% - 301-400
-  // 55% - 401-500
-  // 60% - 501-600
-  // 65% - 601-700
-  // 70% - 701-800
-  // 75% - 801-900
-  // 80% - 901-1000
-
-function randompercentagenumber() {
-  let pullrandomnumber = randomarraynumber();
-  if (pullrandomnumber > 0 && pullrandomnumber < 101){
-    let returnedpercentodd = 0.35;
-    return returnedpercentodd;
-  } else if (pullrandomnumber > 100 && pullrandomnumber < 201){
-    let returnedpercentodd = 0.40;
-    return returnedpercentodd;
-  } else if (pullrandomnumber > 200 && pullrandomnumber < 301){
-    let returnedpercentodd = 0.45;
-    return returnedpercentodd;
-  } else if (pullrandomnumber > 300 && pullrandomnumber < 401){
-    let returnedpercentodd = 0.50;
-    return returnedpercentodd;
-  } else if (pullrandomnumber > 400 && pullrandomnumber < 501){
-    let returnedpercentodd = 0.55;
-    return returnedpercentodd;
-  } else if (pullrandomnumber > 500 && pullrandomnumber < 601){
-    let returnedpercentodd = 0.60;
-    return returnedpercentodd;
-  } else if (pullrandomnumber > 600 && pullrandomnumber < 701){
-    let returnedpercentodd = 0.65;
-    return returnedpercentodd;
-  } else if (pullrandomnumber > 700 && pullrandomnumber < 801){
-    let returnedpercentodd = 0.70;
-    return returnedpercentodd;
-  } else if (pullrandomnumber > 800 && pullrandomnumber < 901){
-    let returnedpercentodd = 0.75;
-    return returnedpercentodd;
-  } else if (pullrandomnumber > 900 && pullrandomnumber < 1001){
-    let returnedpercentodd = 0.80;
-    return returnedpercentodd;
-  } else {
-    let returnedpercentodd = 0.50;
-    return returnedpercentodd;
-  }
-}
 
 let locationodds_cache = JSON.parse(localStorage.getItem('stored_location_odds_array'));
 
