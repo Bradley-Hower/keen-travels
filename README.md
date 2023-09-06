@@ -94,3 +94,11 @@ At the top, near the countdowns:
 ## Versions
 
 0.1.0 - Set basic site framework. Completed HTML file and created the following files: reset.css, style.css, app.js, catalog.js, license, readme.md, requirements.md, .gitignore, .eslintrc.json.
+
+Images Sources:
+
+https://commons.wikimedia.org/wiki/File:Cala_Coloritze_vom_Land.JPG
+https://upload.wikimedia.org/wikipedia/commons/f/f2/Valle_della_Luna%2C_Aggius%2C_Province_of_Olbia-Tempio%2C_Sardinia%2C_Italy_-_panoramio.jpg
+https://www.flickr.com/photos/40351463@N00/18250553643
+https://unsplash.com/photos/akSushxGwLI
+https://unsplash.com/photos/RVExmY6fLW4
