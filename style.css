@@ -1,4 +1,161 @@
-main {
-  background-image: url("images/mountain.jpg")
+body {
+  background-color: black;
+  font-size: 50px;
+  color: white;
+  font-weight: 900;
 }
 
+main img {
+  width: 100vw;
+  display: flex;
+  position: absolute; 
+  bottom: 0;
+}
+
+#welcomediv {
+  height: calc(100vh - 100px);
+  width: calc(100vw - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: grey;
+  color: rgb(160, 109, 61);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  border-radius: 40px;
+  opacity: 95%;
+  z-index: 2;
+  margin: 50px;
+  font-size: 100px;
+  font-weight: 900;
+}
+
+#start {
+  height: 100px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: orange;
+  color: rgb(0, 0, 0);
+  text-shadow: 0 0 0;
+  border-radius: 40px;
+  opacity: 95%;
+  z-index: 2;
+  margin-top: 250px;
+  font-size: 40px;
+  font-weight: 900;
+}
+
+#beach {
+  width: 300px;
+  height: 200px;
+  z-index: 2;
+  position: absolute;
+  bottom: 100px;
+  left: 52%;
+  border: 4px solid white;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+
+#beach:hover {
+  border: 8px solid rgb(250, 227, 21);
+}
+
+#mountain {
+  width: 300px;
+  height: 200px;
+  z-index: 2;
+  position: absolute;
+  bottom: 700px;
+  left: 65%;
+  border: 4px solid white;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+
+#mountain:hover {
+  border: 8px solid rgb(250, 227, 21);
+}
+
+#quarry {
+  width: 300px;
+  height: 200px;
+  z-index: 2;
+  position: absolute;
+  bottom: 600px;
+  left: 45%;
+  border: 4px solid white;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+
+#quarry:hover {
+  border: 8px solid rgb(250, 227, 21);
+}
+
+#valley {
+  width: 300px;
+  height: 200px;
+  z-index: 2;
+  position: absolute;
+  bottom: 500px;
+  left: 25%;
+  border: 4px solid white;
+  border-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+
+}
+
+#valley:hover {
+  border: 8px solid rgb(250, 227, 21);
+}
+
+#beachmenudiv {
+  height: 100%;
+  width: 100%;
+  background-image: url(images/beach.jpg);
+  background-size: 100%;
+  background-position: 0;
+  position: absolute; 
+
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+#homebutton {
+  height: 100px;
+  width: 100px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: yellow;
+  z-index: 3;
+}
