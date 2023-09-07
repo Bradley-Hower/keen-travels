@@ -112,6 +112,33 @@ let homebuttonrun = function() {
 };
 
 
+// ** Profile ** //
+
+function profile(rezzytoshow){
+  let profileframe = document.createElement('div');
+  profileframe.id = 'profileframe';
+  profileframe.innerText = rezzytoshow.name;
+  scroungemenu.appendChild(profileframe);
+
+  let profilepic = document.createElement('img');
+  profilepic.src = rezzytoshow.image;
+  scroungemenu.appendChild(profilepic);
+
+  let profilerank = document.createElement('div');
+  profilerank.id = 'profilerank';
+  profilerank.innerText = `Rank: ${rezzytoshow.rank}`;
+  scroungemenu.appendChild(profilerank);
+
+  let rezzycategory = document.createElement('div');
+  rezzycategory.id = 'rezzycategory';
+  rezzycategory.innerText = `${submenutitle.innerText}`;
+  scroungemenu.appendChild(rezzycategory);
+
+  let rezzytext = document.createElement('div');
+  rezzytext.id = 'rezzytext';
+  rezzytext.innerText = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
+  scroungemenu.appendChild(rezzytext);
+}
 
 
 // ** Rezzy Generator ** //
@@ -129,46 +156,108 @@ function indexnumber() {
 }
 
 function rezzyload(){
+  scroungemenu.innerHTML = '';
+  rezzyloadinput.innerHTML = '';
   if (searchrounds > 0){
     let animationgif = document.createElement('img');
     animationgif.src = 'images/wait.gif';
     rezzyloadinput.appendChild(animationgif);
-    setTimeout(rezzyadder, 5000);
+    setTimeout(rezzyadder, 1000);
   }
 }
 
+let rezzyfail = function (){
+  scroungemenu.innerHTML = '';
+  rezzyloadinput.innerHTML = '';
+  if (searchrounds > 0){
+    let animationgif = document.createElement('img');
+    animationgif.src = 'images/fail.png';
+    rezzyloadinput.appendChild(animationgif);
+  }
+};
 
+// ** Rezzy odds table ** //
 
 let rezzyindex = function (){
-
   let numberforrezzy = randomarraynumber();
-  if (numberforrezzy > 0 && numberforrezzy < 11){
-    let returnedrezzyindex = 0;
-    return returnedrezzyindex;
-  } else if (numberforrezzy > 10 && numberforrezzy < 126){
-    let returnedrezzyindex = 1;
-    return returnedrezzyindex;
-  } else if (numberforrezzy > 125 && numberforrezzy < 251){
-    let returnedrezzyindex = 2;
-    return returnedrezzyindex;
-  } else if (numberforrezzy > 250 && numberforrezzy < 501){
-    let returnedrezzyindex = 3;
-    return returnedrezzyindex;
-  } else if (numberforrezzy > 500 && numberforrezzy < 1001){
-    let returnedrezzyindex = 4;
-    return returnedrezzyindex;
+  if (indexnumber() === 0){
+    if (numberforrezzy > 0 && numberforrezzy < 11){
+      let returnedrezzyindex = 0;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 10 && numberforrezzy < 126){
+      let returnedrezzyindex = 1;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 125 && numberforrezzy < 251){
+      let returnedrezzyindex = 2;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 250 && numberforrezzy < 501){
+      let returnedrezzyindex = 3;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 500 && numberforrezzy < 1001){
+      let returnedrezzyindex = 4;
+      return returnedrezzyindex;
+    }
+  } else if (indexnumber() === 1){
+    if (numberforrezzy > 0 && numberforrezzy < 6){
+      let returnedrezzyindex = 0;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 5 && numberforrezzy < 81){
+      let returnedrezzyindex = 1;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 80 && numberforrezzy < 181){
+      let returnedrezzyindex = 2;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 180 && numberforrezzy < 301){
+      let returnedrezzyindex = 3;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 300 && numberforrezzy < 1001){
+      let returnedrezzyindex = 4;
+      return returnedrezzyindex;
+    }
+  } else if (indexnumber() === 2){
+    if (numberforrezzy > 0 && numberforrezzy < 3){
+      let returnedrezzyindex = 0;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 2 && numberforrezzy < 56){
+      let returnedrezzyindex = 1;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 55 && numberforrezzy < 151){
+      let returnedrezzyindex = 2;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 150 && numberforrezzy < 491){
+      let returnedrezzyindex = 3;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 490 && numberforrezzy < 1001){
+      let returnedrezzyindex = 4;
+      return returnedrezzyindex;
+    }
+  } else if (indexnumber() === 3){
+    if (numberforrezzy > 0 && numberforrezzy < 2){
+      let returnedrezzyindex = 0;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 1 && numberforrezzy < 21){
+      let returnedrezzyindex = 1;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 20 && numberforrezzy < 71){
+      let returnedrezzyindex = 2;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 70 && numberforrezzy < 351){
+      let returnedrezzyindex = 3;
+      return returnedrezzyindex;
+    } else if (numberforrezzy > 320 && numberforrezzy < 1001){
+      let returnedrezzyindex = 4;
+      return returnedrezzyindex;
+    }
   }
 };
 
 let rezzyadder = function(){
+  profile(rezzies_catalog[indexnumber()][rezzyindex()]);
   rezzies_catalog[indexnumber()][rezzyindex()].count++;
   let globalcache = JSON.stringify(rezzies_catalog);
   localStorage.setItem('stored_rezzy_array', globalcache);
   rezzyloadinput.innerHTML = '';
-  // let animationgif = document.createElement('img');
-  // animationgif.src = 'images/colorpicker2000.png';
-  // rezzyloadinput.appendChild(animationgif);
-}
+};
 
 let rezzygenerator = function () {
   console.log(indexnumber());
@@ -178,10 +267,13 @@ let rezzygenerator = function () {
   console.log(location_odds_array[indexnumber()]);
   let top_range = location_odds_load * 1000;
   if (chance_randomnumber > 0 && chance_randomnumber < top_range){
+    rezzyloadinput.innerHTML = '';
     console.log(chance_randomnumber);
     rezzyload();
   } else {
+    rezzyloadinput.innerHTML = '';
     console.log('failure');
+    setTimeout(rezzyfail, 1000);
   }
   if (searchrounds > 0){
     searchrounds--;
@@ -282,10 +374,11 @@ if (locationodds_cache){
 
 //** Constructor */
 
-function RezzyCreature(imagename, image_ext = 'png'){
+function RezzyCreature(imagename, rank, image_ext = 'png'){
   this.name = imagename;
   this.image = `images/${imagename}.${image_ext}`;
   this.count = 0;
+  this.rank = rank;
 }
 
 // ** Instantiation ** //
@@ -299,6 +392,7 @@ if (rezzycache) {
     for(let j = 0; j < rezzycache[i].length; j++){
       let reconstructedrezziesowned = new RezzyCreature(rezzycache[i][j].name);
       reconstructedrezziesowned.count = rezzycache[i][j].count;
+      reconstructedrezziesowned.rank = rezzycache[i][j].rank;
       rezzy_array_layer1.push(reconstructedrezziesowned);
     }
     rezzies_catalog.push(rezzy_array_layer1);
@@ -310,27 +404,27 @@ if (rezzycache) {
 
 
 } else {
+  let rezzy0 = new RezzyCreature('colorpicker20000', 4);
+  let rezzy1 = new RezzyCreature('colorpicker20001', 11);
+  let rezzy2 = new RezzyCreature('colorpicker20002', 13);
+  let rezzy3 = new RezzyCreature('colorpicker20003', 14);
+  let rezzy4 = new RezzyCreature('colorpicker20004', 17);
+  let rezzy5 = new RezzyCreature('colorpicker20005', 3);
+  let rezzy6 = new RezzyCreature('colorpicker20006', 8);
+  let rezzy7 = new RezzyCreature('colorpicker20007', 10);
+  let rezzy8 = new RezzyCreature('colorpicker20008', 12);
+  let rezzy9 = new RezzyCreature('colorpicker20009', 20);
+  let rezzy10 = new RezzyCreature('colorpicker200010', 2);
+  let rezzy11 = new RezzyCreature('colorpicker200011', 7);
+  let rezzy12 = new RezzyCreature('colorpicker200012', 9);
+  let rezzy13 = new RezzyCreature('colorpicker200013', 16);
+  let rezzy14 = new RezzyCreature('colorpicker200014', 18);
+  let rezzy15 = new RezzyCreature('colorpicker200015', 1);
+  let rezzy16 = new RezzyCreature('colorpicker200016', 5);
+  let rezzy17 = new RezzyCreature('colorpicker200017', 6);
+  let rezzy18 = new RezzyCreature('colorpicker200018', 15);
+  let rezzy19 = new RezzyCreature('colorpicker200019', 19);
 
-  let rezzy1 = new RezzyCreature('colorpicker20001');
-  let rezzy2 = new RezzyCreature('colorpicker20002');
-  let rezzy3 = new RezzyCreature('colorpicker20003');
-  let rezzy4 = new RezzyCreature('colorpicker20004');
-  let rezzy5 = new RezzyCreature('colorpicker20005');
-  let rezzy6 = new RezzyCreature('colorpicker20006');
-  let rezzy7 = new RezzyCreature('colorpicker20007');
-  let rezzy8 = new RezzyCreature('colorpicker20008');
-  let rezzy9 = new RezzyCreature('colorpicker20009');
-  let rezzy10 = new RezzyCreature('colorpicker200010');
-  let rezzy11 = new RezzyCreature('colorpicker200011');
-  let rezzy12 = new RezzyCreature('colorpicker200012');
-  let rezzy13 = new RezzyCreature('colorpicker200013');
-  let rezzy14 = new RezzyCreature('colorpicker200014');
-  let rezzy15 = new RezzyCreature('colorpicker200015');
-  let rezzy16 = new RezzyCreature('colorpicker200016');
-  let rezzy17 = new RezzyCreature('colorpicker200017');
-  let rezzy18 = new RezzyCreature('colorpicker200018');
-  let rezzy19 = new RezzyCreature('colorpicker200019');
-  let rezzy0 = new RezzyCreature('colorpicker20000');
 
   let rezziesownedarraybeach = [];
   let rezziesownedarraymountain = [];
