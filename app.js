@@ -2,14 +2,19 @@
 
 // ** DOM Window ** //
 
-let mainpage = document.getElementById('main-page');
+let scroungemenu = document.getElementById('scroungemenudiv');
 let timer = document.getElementById('timer-page');
 let counts = document.getElementById('counts-page');
+let scroungebuttondiv = document.getElementById('scroungebuttondiv-page');
+let submenutitle = document.getElementById('submenutitle-page');
+let rezzyloadinput = document.getElementById('rezzyloadinput-page');
 
 // ** Rounds and Time Countdowns ** //
 
-let global_array = [];
+let counter_array = [];
 let location_odds_array = [];
+let rezzies_catalog = [];
+
 
 let currentdate = new Date();
 // let datetime = currentdate.getDate() + '/'
@@ -26,31 +31,36 @@ function addMinutes(date, minutes) {
 
 let newDate = addMinutes(currentdate, 5);
 
+function counter_array_load(){
+  let globalcache = JSON.parse(localStorage.getItem('stored_counter_array'));
 
-let globalcache = JSON.parse(localStorage.getItem('stored_global_array'));
-
-if (globalcache) {
-  global_array[0] = globalcache[0];
-  global_array[1] = globalcache[1];
-} else {
-  let timestart = newDate;
-  let rounds = 25;
-  global_array[0] = timestart;
-  global_array[1] = rounds;
-  let globalcache = JSON.stringify(global_array);
-  localStorage.setItem('stored_global_array', globalcache);
+  if (globalcache) {
+    counter_array[0] = globalcache[0];
+    counter_array[1] = globalcache[1];
+  } else {
+    let timestart = newDate;
+    let rounds = 25;
+    counter_array[0] = timestart;
+    counter_array[1] = rounds;
+    let globalcache = JSON.stringify(counter_array);
+    localStorage.setItem('stored_counter_array', globalcache);
+  }
 }
 
-
-let countDownArray = global_array[0];
-let searchrounds = global_array[1];
+counter_array_load();
 
 
-let rezziesownedarray = [];
+let countDownArray = counter_array[0];
+let searchrounds = counter_array[1];
+
+
 
 // ** Timer ** //
 // Set the date we're counting down to
+
+
 let countDownDate = new Date(countDownArray).getTime();
+
 
 // Update the count down every 1 second
 let x = setInterval(function() {
@@ -75,93 +85,117 @@ let x = setInterval(function() {
   if (distance < 0) {
     clearInterval(x);
     timer.innerHTML = "Scrounges reset!";
+    searchrounds = 25;
   }
 }, 1000);
-
-// ** Welcome div ** //
-let welcomediv = document.createElement('div');
-mainpage.appendChild(welcomediv);
-welcomediv.id = 'welcomediv';
-welcomediv.innerText = 'Rezzies!';
-
-let startbutton = document.createElement('div');
-welcomediv.appendChild(startbutton);
-startbutton.id = 'start';
-startbutton.innerText = 'Start';
 
 // ** Rounds ** //
 
 counts.innerHTML = searchrounds + ' Remaing';
 
-// // ** Welcome div remove listen handler ** //
-let welcomeclear = function() {
-  welcomediv.style.visibility = 'hidden';
-  // localStorage.setItem('welcome', "welcomediv.style.visibility = 'hidden';");
+
+// ** home link ** //
+
+let homelinkrun = function() {
+  let homelink = document.createElement('a');
+  homebutton.appendChild(homelink);
+  homelink.href = 'index.html';
+  homelink.innerText = 'home';
 };
 
-startbutton.addEventListener('click', welcomeclear);
 
-
-// ** Location Menus ** //
-
-let submenus = function() {
-  let beach = document.createElement('div');
-  mainpage.appendChild(beach);
-  beach.id = 'beach';
-  let beachlink = document.createElement('a');
-  beach.appendChild(beachlink);
-  beachlink.href = 'beach.html';
-  beachlink.innerText = 'Beach';
-
-  let mountain = document.createElement('div');
-  mainpage.appendChild(mountain);
-  mountain.id = 'mountain';
-  let mountainlink = document.createElement('a');
-  mountain.appendChild(mountainlink);
-  mountainlink.href = 'mountain.html';
-  mountainlink.innerText = 'Mountain';
-
-  let quarry = document.createElement('div');
-  mainpage.appendChild(quarry);
-  quarry.id = 'quarry';
-  let quarrylink = document.createElement('a');
-  quarry.appendChild(quarrylink);
-  quarrylink.href = 'quarry.html';
-  quarrylink.innerText = 'Quarry';
-
-  let valley = document.createElement('div');
-  mainpage.appendChild(valley);
-  valley.id = 'valley';
-  let valleylink = document.createElement('a');
-  valley.appendChild(valleylink);
-  valleylink.href = 'valley.html';
-  valleylink.innerText = 'Valley';
+let homebuttonrun = function() {
+  let homebutton = document.createElement('div');
+  scroungemenu.appendChild(homebutton);
+  homebutton.id = 'homebutton';
+  homelinkrun();
 };
 
-submenus();
 
-// ** Scrounge menu ** //
-
-function scroungemenu(){
-  let scroungemenudiv = document.createElement('div');
-  mainpage.appendChild(scroungemenudiv);
-  scroungemenudiv.id = 'scroungemenudiv';
-}
 
 
 // ** Rezzy Generator ** //
 
+function indexnumber() {
+  if(submenutitle.innerText === 'Beach'){
+    return 0;
+  } else if (submenutitle.innerText === 'Mountain'){
+    return 1;
+  } else if (submenutitle.innerText === 'Quarry'){
+    return 2;
+  } else if (submenutitle.innerText === 'Valley'){
+    return 3;
+  }
+}
+
+function rezzyload(){
+  if (searchrounds > 0){
+    let animationgif = document.createElement('img');
+    animationgif.src = 'images/wait.gif';
+    rezzyloadinput.appendChild(animationgif);
+    setTimeout(rezzyadder, 5000);
+    let globalcache = JSON.stringify(rezzies_catalog);
+    localStorage.setItem('stored_rezzy_array', globalcache);
+  }
+}
+
+
+
+let rezzyindex = function (){
+  rezzyloadinput.innerHTML = '';
+  let numberforrezzy = randomarraynumber();
+  if (numberforrezzy > 0 && numberforrezzy < 11){
+    let returnedrezzyindex = 0;
+    return returnedrezzyindex;
+  } else if (numberforrezzy > 10 && numberforrezzy < 126){
+    let returnedrezzyindex = 1;
+    return returnedrezzyindex;
+  } else if (numberforrezzy > 125 && numberforrezzy < 251){
+    let returnedrezzyindex = 2;
+    return returnedrezzyindex;
+  } else if (numberforrezzy > 250 && numberforrezzy < 501){
+    let returnedrezzyindex = 3;
+    return returnedrezzyindex;
+  } else if (numberforrezzy > 500 && numberforrezzy < 1001){
+    let returnedrezzyindex = 4;
+    return returnedrezzyindex;
+  }
+};
+
+function rezzyadder(){
+  let rezzyselect = rezzies_catalog[indexnumber()][rezzyindex()];
+  console.log(rezzyselect);
+  rezzies_catalog[indexnumber()][rezzyindex()].count++;
+  // let animationgif = document.createElement('img');
+  // animationgif.src = 'images/colorpicker2000.png';
+  // rezzyloadinput.appendChild(animationgif);
+}
+
 let rezzygenerator = function () {
+  console.log(indexnumber());
   let chance_randomnumber = randomarraynumber();
-  let location_odds_load = location_odds_array[0];
-  console.log(location_odds_array[0]);
+  let location_odds_load = location_odds_array[indexnumber()];
+  console.log(location_odds_array[indexnumber()]);
   let top_range = location_odds_load * 1000;
   if (chance_randomnumber > 0 && chance_randomnumber < top_range){
-    console.log('success!');
+    console.log(chance_randomnumber);
+    rezzyload();
   } else {
     console.log('failure');
   }
+  searchrounds --;
+  let rounds = searchrounds;
+  counter_array[1] = rounds;
+  let globalcache = JSON.stringify(counter_array);
+  localStorage.setItem('stored_counter_array', globalcache);
+  counts.innerHTML = searchrounds + ' Remaing';
 };
+
+// ** Scrounge Click Listener ** //
+
+
+scroungebuttondiv.addEventListener('click', rezzygenerator);
+
 
 
 //** Helper functions (Random Generator, image generator) */   For redesign with any variable number
@@ -221,6 +255,7 @@ function randompercentagenumber() {
   }
 }
 
+
 let locationodds_cache = JSON.parse(localStorage.getItem('stored_location_odds_array'));
 
 
@@ -258,33 +293,43 @@ let rezzycache = JSON.parse(localStorage.getItem('stored_rezzy_array'));
 if (rezzycache) {
   for(let i = 0; i < rezzycache.length; i++){
     let reconstructedrezziesowned = new RezzyCreature(rezzycache[i].name);
-    reconstructedrezziesowned.votes = rezzycache[i].count;
-    rezziesownedarray.push(reconstructedrezziesowned);
+    reconstructedrezziesowned.count = rezzycache[indexnumber()][i].count;
+    rezzies_catalog.push(reconstructedrezziesowned);
+    
   }
 
 } else {
 
-  let rezzy1 = new RezzyCreature('colorpicker2000');
-  let rezzy2 = new RezzyCreature('colorpicker2000');
-  let rezzy3 = new RezzyCreature('colorpicker2000');
-  let rezzy4 = new RezzyCreature('colorpicker2000');
-  let rezzy5 = new RezzyCreature('colorpicker2000');
-  let rezzy6 = new RezzyCreature('colorpicker2000');
-  let rezzy7 = new RezzyCreature('colorpicker2000');
-  let rezzy8 = new RezzyCreature('colorpicker2000');
-  let rezzy9 = new RezzyCreature('colorpicker2000');
-  let rezzy10 = new RezzyCreature('colorpicker2000');
-  let rezzy11 = new RezzyCreature('colorpicker2000');
-  let rezzy12 = new RezzyCreature('colorpicker2000');
-  let rezzy13 = new RezzyCreature('colorpicker2000');
-  let rezzy14 = new RezzyCreature('colorpicker2000');
-  let rezzy15 = new RezzyCreature('colorpicker2000');
-  let rezzy16 = new RezzyCreature('colorpicker2000');
-  let rezzy17 = new RezzyCreature('colorpicker2000');
-  let rezzy18 = new RezzyCreature('colorpicker2000');
-  let rezzy19 = new RezzyCreature('colorpicker2000');
-  let rezzy20 = new RezzyCreature('colorpicker2000');
+  let rezzy1 = new RezzyCreature('colorpicker20001');
+  let rezzy2 = new RezzyCreature('colorpicker20002');
+  let rezzy3 = new RezzyCreature('colorpicker20003');
+  let rezzy4 = new RezzyCreature('colorpicker20004');
+  let rezzy5 = new RezzyCreature('colorpicker20005');
+  let rezzy6 = new RezzyCreature('colorpicker20006');
+  let rezzy7 = new RezzyCreature('colorpicker20007');
+  let rezzy8 = new RezzyCreature('colorpicker20008');
+  let rezzy9 = new RezzyCreature('colorpicker20009');
+  let rezzy10 = new RezzyCreature('colorpicker200010');
+  let rezzy11 = new RezzyCreature('colorpicker200011');
+  let rezzy12 = new RezzyCreature('colorpicker200012');
+  let rezzy13 = new RezzyCreature('colorpicker200013');
+  let rezzy14 = new RezzyCreature('colorpicker200014');
+  let rezzy15 = new RezzyCreature('colorpicker200015');
+  let rezzy16 = new RezzyCreature('colorpicker200016');
+  let rezzy17 = new RezzyCreature('colorpicker200017');
+  let rezzy18 = new RezzyCreature('colorpicker200018');
+  let rezzy19 = new RezzyCreature('colorpicker200019');
+  let rezzy20 = new RezzyCreature('colorpicker200020');
 
-  rezziesownedarray.push(rezzy1, rezzy2, rezzy3, rezzy4, rezzy5, rezzy6, rezzy7, rezzy8, rezzy9, rezzy10, rezzy11, rezzy12, rezzy13, rezzy14, rezzy15, rezzy16, rezzy17, rezzy18, rezzy19, rezzy20);
+  let rezziesownedarraybeach = [];
+  let rezziesownedarraymountain = [];
+  let rezziesownedarrayquarry = [];
+  let rezziesownedarrayvalley = [];
 
+  rezziesownedarraybeach.push(rezzy1, rezzy2, rezzy3, rezzy4, rezzy5);
+  rezziesownedarraymountain.push(rezzy6, rezzy7, rezzy8, rezzy9, rezzy10);
+  rezziesownedarrayquarry.push(rezzy11, rezzy12, rezzy13, rezzy14, rezzy15);
+  rezziesownedarrayvalley.push(rezzy16, rezzy17, rezzy18, rezzy19, rezzy20);
+
+  rezzies_catalog.push(rezziesownedarraybeach,rezziesownedarraymountain, rezziesownedarrayquarry, rezziesownedarrayvalley);
 }
