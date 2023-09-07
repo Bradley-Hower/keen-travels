@@ -98,7 +98,13 @@ At the top, near the countdowns:
 Images Sources:
 
 https://commons.wikimedia.org/wiki/File:Cala_Coloritze_vom_Land.JPG
+
 https://upload.wikimedia.org/wikipedia/commons/f/f2/Valle_della_Luna%2C_Aggius%2C_Province_of_Olbia-Tempio%2C_Sardinia%2C_Italy_-_panoramio.jpg
+
 https://www.flickr.com/photos/40351463@N00/18250553643
+
 https://unsplash.com/photos/akSushxGwLI
+
 https://unsplash.com/photos/RVExmY6fLW4
+
+https://commons.wikimedia.org/wiki/File:Comet_and_%27Churymoon%27_ESA19661632.gif
