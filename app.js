@@ -133,9 +133,8 @@ function rezzyload(){
     let animationgif = document.createElement('img');
     animationgif.src = 'images/wait.gif';
     rezzyloadinput.appendChild(animationgif);
-    setTimeout(rezzyadder, 5000);
-    let globalcache = JSON.stringify(rezzies_catalog);
-    localStorage.setItem('stored_rezzy_array', globalcache);
+    setTimeout(rezzyadder(), 5000);
+    console.log('loaded');
   }
 }
 
@@ -163,9 +162,9 @@ let rezzyindex = function (){
 };
 
 function rezzyadder(){
-  let rezzyselect = rezzies_catalog[indexnumber()][rezzyindex()];
-  console.log(rezzyselect);
   rezzies_catalog[indexnumber()][rezzyindex()].count++;
+  let globalcache = JSON.stringify(rezzies_catalog);
+  localStorage.setItem('stored_rezzy_array', globalcache);
   // let animationgif = document.createElement('img');
   // animationgif.src = 'images/colorpicker2000.png';
   // rezzyloadinput.appendChild(animationgif);
@@ -174,6 +173,7 @@ function rezzyadder(){
 let rezzygenerator = function () {
   console.log(indexnumber());
   let chance_randomnumber = randomarraynumber();
+  console.log(chance_randomnumber);
   let location_odds_load = location_odds_array[indexnumber()];
   console.log(location_odds_array[indexnumber()]);
   let top_range = location_odds_load * 1000;
@@ -183,7 +183,9 @@ let rezzygenerator = function () {
   } else {
     console.log('failure');
   }
-  searchrounds --;
+  if (searchrounds > 0){
+    searchrounds--;
+  }
   let rounds = searchrounds;
   counter_array[1] = rounds;
   let globalcache = JSON.stringify(counter_array);
@@ -292,11 +294,20 @@ let rezzycache = JSON.parse(localStorage.getItem('stored_rezzy_array'));
 
 if (rezzycache) {
   for(let i = 0; i < rezzycache.length; i++){
-    let reconstructedrezziesowned = new RezzyCreature(rezzycache[i].name);
-    reconstructedrezziesowned.count = rezzycache[indexnumber()][i].count;
-    rezzies_catalog.push(reconstructedrezziesowned);
-    
+    let rezzy_array_layer1 = [];
+    console.log(i);
+    for(let j = 0; j < rezzycache[i].length; j++){
+      let reconstructedrezziesowned = new RezzyCreature(rezzycache[i][j].name);
+      reconstructedrezziesowned.count = rezzycache[i][j].count;
+      rezzy_array_layer1.push(reconstructedrezziesowned);
+    }
+    rezzies_catalog.push(rezzy_array_layer1);
   }
+
+
+
+
+
 
 } else {
 
@@ -319,7 +330,7 @@ if (rezzycache) {
   let rezzy17 = new RezzyCreature('colorpicker200017');
   let rezzy18 = new RezzyCreature('colorpicker200018');
   let rezzy19 = new RezzyCreature('colorpicker200019');
-  let rezzy20 = new RezzyCreature('colorpicker200020');
+  let rezzy0 = new RezzyCreature('colorpicker20000');
 
   let rezziesownedarraybeach = [];
   let rezziesownedarraymountain = [];
@@ -329,7 +340,7 @@ if (rezzycache) {
   rezziesownedarraybeach.push(rezzy1, rezzy2, rezzy3, rezzy4, rezzy5);
   rezziesownedarraymountain.push(rezzy6, rezzy7, rezzy8, rezzy9, rezzy10);
   rezziesownedarrayquarry.push(rezzy11, rezzy12, rezzy13, rezzy14, rezzy15);
-  rezziesownedarrayvalley.push(rezzy16, rezzy17, rezzy18, rezzy19, rezzy20);
+  rezziesownedarrayvalley.push(rezzy16, rezzy17, rezzy18, rezzy19, rezzy0);
 
   rezzies_catalog.push(rezziesownedarraybeach,rezziesownedarraymountain, rezziesownedarrayquarry, rezziesownedarrayvalley);
 }
