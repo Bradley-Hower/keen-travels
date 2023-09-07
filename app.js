@@ -133,15 +133,14 @@ function rezzyload(){
     let animationgif = document.createElement('img');
     animationgif.src = 'images/wait.gif';
     rezzyloadinput.appendChild(animationgif);
-    setTimeout(rezzyadder(), 5000);
-    console.log('loaded');
+    setTimeout(rezzyadder, 5000);
   }
 }
 
 
 
 let rezzyindex = function (){
-  rezzyloadinput.innerHTML = '';
+
   let numberforrezzy = randomarraynumber();
   if (numberforrezzy > 0 && numberforrezzy < 11){
     let returnedrezzyindex = 0;
@@ -161,10 +160,11 @@ let rezzyindex = function (){
   }
 };
 
-function rezzyadder(){
+let rezzyadder = function(){
   rezzies_catalog[indexnumber()][rezzyindex()].count++;
   let globalcache = JSON.stringify(rezzies_catalog);
   localStorage.setItem('stored_rezzy_array', globalcache);
+  rezzyloadinput.innerHTML = '';
   // let animationgif = document.createElement('img');
   // animationgif.src = 'images/colorpicker2000.png';
   // rezzyloadinput.appendChild(animationgif);
