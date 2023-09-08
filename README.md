@@ -94,11 +94,67 @@ At the top, near the countdowns:
 ## Versions
 
 0.1.0 - Set basic site framework. Completed HTML file and created the following files: reset.css, style.css, app.js, catalog.js, license, readme.md, requirements.md, .gitignore, .eslintrc.json.
+0.2.0 - Scrounge. Randomized Rezzy draw.
+0.2.0 - Set counters, time and draws remaining.
+0.3.0 - Profiles for Rezzies.
+0.4.0 - Catalog created.
+0.5.0 - Profile images.
+1.0.0 - Fully working. 
 
 Images Sources:
 
+http://almanaquedabiblia.com.br/estrela-de-belem/
+
 https://commons.wikimedia.org/wiki/File:Cala_Coloritze_vom_Land.JPG
+
 https://upload.wikimedia.org/wikipedia/commons/f/f2/Valle_della_Luna%2C_Aggius%2C_Province_of_Olbia-Tempio%2C_Sardinia%2C_Italy_-_panoramio.jpg
+
 https://www.flickr.com/photos/40351463@N00/18250553643
+
 https://unsplash.com/photos/akSushxGwLI
+
 https://unsplash.com/photos/RVExmY6fLW4
+
+https://commons.wikimedia.org/wiki/File:Comet_and_%27Churymoon%27_ESA19661632.gif
+
+https://commons.wikimedia.org/wiki/File:Tyrannosaurus_Rex_colored.png
+
+https://freepngimg.com/png/52949-triceratop-picture-free-download-png-hq
+
+https://commons.wikimedia.org/wiki/File:Woolly_mammoth.jpg
+
+https://en.wikipedia.org/wiki/File:Archaeopteryx_2B.JPG
+
+http://www.entierradedinosaurios.com/2012/11/un-nuevo-estudio-concluye-que-el-ave.html
+
+https://www.unabrevehistoria.com/2007/10/el-dodo-evolucin-hacia-la-extincin.html
+
+https://dinosaurpictures.org/Anurognathus-pictures
+
+https://arc-team-open-research.blogspot.com/2015/08/homo-floresiensis.html
+
+https://daily.wired.it/foto/2013/03/29/animali-estinzione-vita-785296578.html
+
+https://en.wikipedia.org/wiki/Megalonyx
+
+https://www.flickr.com/photos/cdevers/8247829737
+
+https://klexikon.zum.de/wiki/Erdaltertum
+
+https://www.goodfreephotos.com/fossils/trilobite-zlichovaspis-rugosa.jpg.php
+
+https://www.earthwonders.co/nature/a-prehistoric-plant-set-to-reproduce-in-uk-after-60-million-years-possibly-due-to-climate-change/
+
+https://www.gildshire.com/extinct-plants-wished-still-around-rare-ones-still-save/
+
+https://www.flickr.com/photos/ngawangchodron/50007672538/
+
+https://www.deviantart.com/kaek/art/Hallucigenia-544541678
+
+https://www.wired.it/scienza/lab/2017/05/10/nuove-specie-dinosauro/
+
+https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Dinosaurs/Image_review/Archive_2016
+
+https://thewiki.kr/w/%EC%95%84%EB%85%B8%EB%A7%90%EB%A1%9C%EC%B9%B4%EB%A6%AC%EC%8A%A4
+
+http://en.wikipedia.org/wiki/File:Shonisaurus_popularisDB.jpg
