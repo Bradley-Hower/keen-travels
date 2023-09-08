@@ -174,7 +174,6 @@ let rezzyfail = function (){
 
 let rezzyindex = function (){
   let numberforrezzy = randomarraynumber();
-  console.log(numberforrezzy);
   if (indexnumber() === 0){
     if (numberforrezzy > 0 && numberforrezzy < 11){
       let returnedrezzyindex = 0;
@@ -256,19 +255,14 @@ let rezzyadder = function(){
 };
 
 let rezzygenerator = function () {
-  console.log(indexnumber());
   let chance_randomnumber = randomarraynumber();
-  console.log(chance_randomnumber);
   let location_odds_load = location_odds_array[indexnumber()];
-  console.log(location_odds_array[indexnumber()]);
   let top_range = location_odds_load * 1000;
   if (chance_randomnumber > 0 && chance_randomnumber < top_range){
     rezzyloadinput.innerHTML = '';
-    console.log(chance_randomnumber);
     rezzyload();
   } else {
     rezzyloadinput.innerHTML = '';
-    console.log('failure');
     setTimeout(rezzyfail, 500);
   }
   if (searchrounds > 0){
