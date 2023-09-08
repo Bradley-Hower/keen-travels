@@ -10,6 +10,12 @@ body {
   font-weight: 900;
 }
 
+p {
+  text-align: right;
+  padding: 5px 38px;
+  font-size: 15px;
+}
+
 tr {
   height: 40px;
 }
@@ -24,17 +30,17 @@ td {
 
 #catalogsheet-page {
   height: 100vh;
-  width: 500px;
   position: fixed;
   background-color: antiquewhite;
   z-index: 7;
-  right: 0%;
+  right: -460px;
   top: 0%;
   border: 1px solid black;
   padding: 20px 0 60px 60px;
   font-size: 20px;
   color: black;
   text-align: center;
+  overflow: hidden;
 }
 
 #catalogsheet-page > img{

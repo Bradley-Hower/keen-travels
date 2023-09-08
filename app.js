@@ -18,6 +18,7 @@ let rezzies_catalog = [];
 
 
 let currentdate = new Date();
+
 // let datetime = currentdate.getDate() + '/'
 //                 + (currentdate.getMonth()+1)  + '/'
 //                 + currentdate.getFullYear() + ' @ '
@@ -30,12 +31,21 @@ function addMinutes(date, minutes) {
   return date;
 }
 
-let newDate = addMinutes(currentdate, 5);
+let newDate = addMinutes(currentdate, 1);
 
 function counter_array_load(){
   let globalcache = JSON.parse(localStorage.getItem('stored_counter_array'));
+  
+  let storedtime = new Date(globalcache[0]).getTime();
+  let distance = storedtime - currentdate;
+  console.log(distance);
+  if (distance < -100){
+    counter_array[0] = addMinutes(currentdate, 1);
+    counter_array[1] = 25;
+    let globalcache1 = JSON.stringify(counter_array);
+    localStorage.setItem('stored_counter_array', globalcache1);
 
-  if (globalcache) {
+  } else if (globalcache) {
     counter_array[0] = globalcache[0];
     counter_array[1] = globalcache[1];
   } else {
@@ -43,10 +53,12 @@ function counter_array_load(){
     let rounds = 25;
     counter_array[0] = timestart;
     counter_array[1] = rounds;
-    let globalcache = JSON.stringify(counter_array);
-    localStorage.setItem('stored_counter_array', globalcache);
+    let globalcache2 = JSON.stringify(counter_array);
+    localStorage.setItem('stored_counter_array', globalcache2);
   }
 }
+
+
 
 counter_array_load();
 
@@ -85,7 +97,7 @@ let x = setInterval(function() {
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
-    timer.innerHTML = "Scrounges reset!";
+    timer.innerHTML = 'Resetting!';
     searchrounds = 25;
   }
 }, 1000);
@@ -374,19 +386,18 @@ if (locationodds_cache){
 // ** Catalog sheet page ** /
 
 function catalogsheetrender(){
-  let catalogtableR1 = document.createElement('tr');
+  let catalogtableR1 = document.createElement('p');
   catalogsheet.appendChild(catalogtableR1);
+  catalogtableR1.innerText = 'Count Rank';
 
   for(let i = 0; i < rezzies_catalog.length; i++){
-  console.log(i);
-    for(let j = 0; j < rezzies_catalog.length; j++){
-      console.log(j);
+    for(let j = 0; j < rezzies_catalog[i].length; j++){
       let razzydatarow = document.createElement('tr');
       catalogsheet.appendChild(razzydatarow);
 
       let razzydataimg = document.createElement('td');
       razzydatarow.appendChild(razzydataimg);
-      razzydataimg.innerHTML = `<img src="${rezzies_catalog[j][i].image}"></img>`;
+      razzydataimg.innerHTML = `<img src="${rezzies_catalog[i][j].image}"></img>`;
 
       let razzydataname = document.createElement('td');
       razzydatarow.appendChild(razzydataname);
@@ -396,18 +407,19 @@ function catalogsheetrender(){
 
       let razzydatacheckbox = document.createElement('td');
       razzydatarow.appendChild(razzydatacheckbox);
-      if(rezzies_catalog[j][i].count > 0){
-        razzydatacheckbox.innerHTML = `<img src="images/checkbox.png"></img>`;
+      if(rezzies_catalog[i][j].count > 0){
+        razzydatacheckbox.innerHTML = '<img src="images/checkbox.png"></img>';
       } else {
-        razzydatacheckbox.innerHTML = `<img src="images/blankcheckbox.png"></img>`;
+        razzydatacheckbox.innerHTML = '<img src="images/blankcheckbox.png"></img>';
       }
-      
+
       let razzydatacheckcount = document.createElement('td');
       razzydatarow.appendChild(razzydatacheckcount);
-      razzydatacheckcount.innerText = rezzies_catalog[j][i].count;
+      razzydatacheckcount.innerText = rezzies_catalog[i][j].count;
 
-      // razzydatarow.innerText = rezzies_catalog[j][i].count;
-      // razzydatarow.innerText = rezzies_catalog[j][i].rank;
+      let razzydatacheckrank = document.createElement('td');
+      razzydatarow.appendChild(razzydatacheckrank);
+      razzydatacheckrank.innerText = rezzies_catalog[i][j].rank;
     }
   }
 }
@@ -434,7 +446,6 @@ let rezzycache = JSON.parse(localStorage.getItem('stored_rezzy_array'));
 if (rezzycache) {
   for(let i = 0; i < rezzycache.length; i++){
     let rezzy_array_layer1 = [];
-    console.log(i);
     for(let j = 0; j < rezzycache[i].length; j++){
       let reconstructedrezziesowned = new RezzyCreature(rezzycache[i][j].name);
       reconstructedrezziesowned.count = rezzycache[i][j].count;
@@ -450,26 +461,26 @@ if (rezzycache) {
 
 
 } else {
-  let rezzy0 = new RezzyCreature('colorpicker20000', 4);
-  let rezzy1 = new RezzyCreature('colorpicker20001', 11);
-  let rezzy2 = new RezzyCreature('colorpicker20002', 13);
-  let rezzy3 = new RezzyCreature('colorpicker20003', 14);
-  let rezzy4 = new RezzyCreature('colorpicker20004', 17);
-  let rezzy5 = new RezzyCreature('colorpicker20005', 3);
-  let rezzy6 = new RezzyCreature('colorpicker20006', 8);
-  let rezzy7 = new RezzyCreature('colorpicker20007', 10);
-  let rezzy8 = new RezzyCreature('colorpicker20008', 12);
-  let rezzy9 = new RezzyCreature('colorpicker20009', 20);
-  let rezzy10 = new RezzyCreature('colorpicker200010', 2);
-  let rezzy11 = new RezzyCreature('colorpicker200011', 7);
-  let rezzy12 = new RezzyCreature('colorpicker200012', 9);
-  let rezzy13 = new RezzyCreature('colorpicker200013', 16);
-  let rezzy14 = new RezzyCreature('colorpicker200014', 18);
-  let rezzy15 = new RezzyCreature('colorpicker200015', 1);
-  let rezzy16 = new RezzyCreature('colorpicker200016', 5);
-  let rezzy17 = new RezzyCreature('colorpicker200017', 6);
-  let rezzy18 = new RezzyCreature('colorpicker200018', 15);
-  let rezzy19 = new RezzyCreature('colorpicker200019', 19);
+  let rezzy0 = new RezzyCreature('colorpicker20001', 4);
+  let rezzy1 = new RezzyCreature('colorpicker20002', 11);
+  let rezzy2 = new RezzyCreature('colorpicker20003', 13);
+  let rezzy3 = new RezzyCreature('colorpicker20004', 14);
+  let rezzy4 = new RezzyCreature('colorpicker20005', 17);
+  let rezzy5 = new RezzyCreature('colorpicker20006', 3);
+  let rezzy6 = new RezzyCreature('colorpicker20007', 8);
+  let rezzy7 = new RezzyCreature('colorpicker20008', 10);
+  let rezzy8 = new RezzyCreature('colorpicker20009', 12);
+  let rezzy9 = new RezzyCreature('colorpicker200010', 20);
+  let rezzy10 = new RezzyCreature('colorpicker200011', 2);
+  let rezzy11 = new RezzyCreature('colorpicker200012', 7);
+  let rezzy12 = new RezzyCreature('colorpicker200013', 9);
+  let rezzy13 = new RezzyCreature('colorpicker200014', 16);
+  let rezzy14 = new RezzyCreature('colorpicker200015', 18);
+  let rezzy15 = new RezzyCreature('colorpicker200016', 1);
+  let rezzy16 = new RezzyCreature('colorpicker200017', 5);
+  let rezzy17 = new RezzyCreature('colorpicker200018', 6);
+  let rezzy18 = new RezzyCreature('colorpicker200019', 15);
+  let rezzy19 = new RezzyCreature('colorpicker200020', 19);
 
 
   let rezziesownedarraybeach = [];
@@ -477,10 +488,10 @@ if (rezzycache) {
   let rezziesownedarrayquarry = [];
   let rezziesownedarrayvalley = [];
 
-  rezziesownedarraybeach.push(rezzy1, rezzy2, rezzy3, rezzy4, rezzy5);
-  rezziesownedarraymountain.push(rezzy6, rezzy7, rezzy8, rezzy9, rezzy10);
-  rezziesownedarrayquarry.push(rezzy11, rezzy12, rezzy13, rezzy14, rezzy15);
-  rezziesownedarrayvalley.push(rezzy16, rezzy17, rezzy18, rezzy19, rezzy0);
+  rezziesownedarraybeach.push(rezzy0, rezzy1, rezzy2, rezzy3, rezzy4);
+  rezziesownedarraymountain.push(rezzy5, rezzy6, rezzy7, rezzy8, rezzy9);
+  rezziesownedarrayquarry.push(rezzy10, rezzy11, rezzy12, rezzy13, rezzy14);
+  rezziesownedarrayvalley.push(rezzy15, rezzy16, rezzy17, rezzy18, rezzy19);
 
   rezzies_catalog.push(rezziesownedarraybeach,rezziesownedarraymountain, rezziesownedarrayquarry, rezziesownedarrayvalley);
 }
