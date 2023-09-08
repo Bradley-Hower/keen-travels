@@ -193,6 +193,7 @@ let rezzyfail = function (){
 
 let rezzyindex = function (){
   let numberforrezzy = randomarraynumber();
+  console.log(numberforrezzy);
   if (indexnumber() === 0){
     if (numberforrezzy > 0 && numberforrezzy < 11){
       let returnedrezzyindex = 0;
@@ -265,8 +266,9 @@ let rezzyindex = function (){
 };
 
 let rezzyadder = function(){
-  profile(rezzies_catalog[indexnumber()][rezzyindex()]);
-  rezzies_catalog[indexnumber()][rezzyindex()].count++;
+  let rezzyadded = rezzies_catalog[indexnumber()][rezzyindex()];
+  profile(rezzyadded);
+  rezzyadded.count++;
   let globalcache = JSON.stringify(rezzies_catalog);
   localStorage.setItem('stored_rezzy_array', globalcache);
   rezzyloadinput.innerHTML = '';
