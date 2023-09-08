@@ -10,6 +10,50 @@ body {
   font-weight: 900;
 }
 
+tr {
+  height: 40px;
+}
+
+td {
+  width: auto;
+  min-width: 40px;
+  color: black;
+  font-size: 20px;
+  border: 2px solid black;
+}
+
+#catalogsheet-page {
+  height: 100vh;
+  width: 500px;
+  position: fixed;
+  background-color: antiquewhite;
+  z-index: 7;
+  right: 0%;
+  top: 0%;
+  border: 1px solid black;
+  padding: 20px 0 60px 60px;
+  font-size: 20px;
+  color: black;
+  text-align: center;
+}
+
+#catalogsheet-page > img{
+  height: 100px;
+  width: 50px;
+  position: absolute;
+  left: 0;
+  top: calc(50% - 50px);
+}
+
+#catalogsheet-page:hover {
+  height: 100vh;
+  width: 500px;
+  position: fixed;
+  background-color: antiquewhite;
+  z-index: 7;
+  right: 0%;
+}
+
 main > img {
   width: 100vw;
   display: flex;
@@ -30,7 +74,7 @@ main > img {
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   border-radius: 40px;
   opacity: 95%;
-  z-index: 4;
+  z-index: 3;
   margin: 50px;
   font-size: 100px;
   font-weight: 900;
@@ -62,7 +106,7 @@ main > img {
   right: 50%;
   text-align: center;
   position: fixed;
-  z-index: 4;
+  z-index: 8;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   background-color: white;
   border: 3px solid white;
@@ -78,7 +122,7 @@ main > img {
   left: 50%;
   text-align: center;
   position: fixed;
-  z-index: 4;
+  z-index: 8;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   background-color: white;
   border: 3px solid white;

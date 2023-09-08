@@ -8,6 +8,7 @@ let counts = document.getElementById('counts-page');
 let scroungebuttondiv = document.getElementById('scroungebuttondiv-page');
 let submenutitle = document.getElementById('submenutitle-page');
 let rezzyloadinput = document.getElementById('rezzyloadinput-page');
+let catalogsheet = document.getElementById('catalogsheet-page');
 
 // ** Rounds and Time Countdowns ** //
 
@@ -370,6 +371,51 @@ if (locationodds_cache){
   localStorage.setItem('stored_location_odds_array', locationodds_set);
 }
 
+// ** Catalog sheet page ** /
+
+function catalogsheetrender(){
+  let catalogtableR1 = document.createElement('tr');
+  catalogsheet.appendChild(catalogtableR1);
+
+  for(let i = 0; i < rezzies_catalog.length; i++){
+  console.log(i);
+    for(let j = 0; j < rezzies_catalog.length; j++){
+      console.log(j);
+      let razzydatarow = document.createElement('tr');
+      catalogsheet.appendChild(razzydatarow);
+
+      let razzydataimg = document.createElement('td');
+      razzydatarow.appendChild(razzydataimg);
+      razzydataimg.innerHTML = `<img src="${rezzies_catalog[j][i].image}"></img>`;
+
+      let razzydataname = document.createElement('td');
+      razzydatarow.appendChild(razzydataname);
+      razzydataname.style.width = '250px';
+      razzydataname.style.padding = '0 15px';
+      razzydataname.innerText = rezzies_catalog[i][j].name;
+
+      let razzydatacheckbox = document.createElement('td');
+      razzydatarow.appendChild(razzydatacheckbox);
+      if(rezzies_catalog[j][i].count > 0){
+        razzydatacheckbox.innerHTML = `<img src="images/checkbox.png"></img>`;
+      } else {
+        razzydatacheckbox.innerHTML = `<img src="images/blankcheckbox.png"></img>`;
+      }
+      
+      let razzydatacheckcount = document.createElement('td');
+      razzydatarow.appendChild(razzydatacheckcount);
+      razzydatacheckcount.innerText = rezzies_catalog[j][i].count;
+
+      // razzydatarow.innerText = rezzies_catalog[j][i].count;
+      // razzydatarow.innerText = rezzies_catalog[j][i].rank;
+    }
+  }
+}
+
+
+
+
+
 
 
 //** Constructor */
@@ -438,3 +484,6 @@ if (rezzycache) {
 
   rezzies_catalog.push(rezziesownedarraybeach,rezziesownedarraymountain, rezziesownedarrayquarry, rezziesownedarrayvalley);
 }
+
+
+catalogsheetrender();
