@@ -27,6 +27,12 @@ td {
   font-size: 20px;
   border: 2px solid black;
 }
+td > img {
+  width: 30px;
+  color: black;
+  font-size: 20px;
+  border: 2px solid black;
+}
 
 #catalogsheet-page {
   height: 100vh;

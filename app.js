@@ -36,18 +36,18 @@ let newDate = addMinutes(currentdate, 1);
 function counter_array_load(){
   let globalcache = JSON.parse(localStorage.getItem('stored_counter_array'));
   
-  let storedtime = new Date(globalcache[0]).getTime();
-  let distance = storedtime - currentdate;
-  console.log(distance);
-  if (distance < -100){
-    counter_array[0] = addMinutes(currentdate, 1);
-    counter_array[1] = 25;
-    let globalcache1 = JSON.stringify(counter_array);
-    localStorage.setItem('stored_counter_array', globalcache1);
-
-  } else if (globalcache) {
-    counter_array[0] = globalcache[0];
-    counter_array[1] = globalcache[1];
+  if (globalcache) {
+    let storedtime = new Date(globalcache[0]).getTime();
+    let distance = storedtime - currentdate;
+    if (distance < -1000){
+      counter_array[0] = addMinutes(currentdate, 1);
+      counter_array[1] = 25;
+      let globalcache1 = JSON.stringify(counter_array);
+      localStorage.setItem('stored_counter_array', globalcache1);
+    } else {
+      counter_array[0] = globalcache[0];
+      counter_array[1] = globalcache[1];
+    }
   } else {
     let timestart = newDate;
     let rounds = 25;
@@ -97,7 +97,7 @@ let x = setInterval(function() {
   // If the count down is over, write some text 
   if (distance < 0) {
     clearInterval(x);
-    timer.innerHTML = 'Resetting!';
+    timer.innerHTML = 'Reset!';
     searchrounds = 25;
   }
 }, 1000);
@@ -397,7 +397,7 @@ function catalogsheetrender(){
 
       let razzydataimg = document.createElement('td');
       razzydatarow.appendChild(razzydataimg);
-      razzydataimg.innerHTML = `<img src="${rezzies_catalog[i][j].image}"></img>`;
+      razzydataimg.innerHTML = `<img src="${rezzies_catalog[i][j].image}" title="${rezzies_catalog[i][j].name}"></img>`;
 
       let razzydataname = document.createElement('td');
       razzydatarow.appendChild(razzydataname);
@@ -424,11 +424,22 @@ function catalogsheetrender(){
   }
 }
 
+// ** profile click show
+function profileclickhandler(event){
+  //** Pull name from clicked item */
+  let clickedimage = event.target.title;
+
+  for(let i = 0; i < rezzies_catalog.length; i++){
+    for(let j = 0; j < rezzies_catalog[i].length; j++){
+      if (rezzies_catalog[i][j].name === clickedimage){
+        profile(rezzies_catalog[i][j]);
+      }
+    } 
+  }
+}
 
 
-
-
-
+catalogsheet.addEventListener('click', profileclickhandler);
 
 //** Constructor */
 
@@ -461,26 +472,26 @@ if (rezzycache) {
 
 
 } else {
-  let rezzy0 = new RezzyCreature('colorpicker20001', 4);
-  let rezzy1 = new RezzyCreature('colorpicker20002', 11);
-  let rezzy2 = new RezzyCreature('colorpicker20003', 13);
-  let rezzy3 = new RezzyCreature('colorpicker20004', 14);
-  let rezzy4 = new RezzyCreature('colorpicker20005', 17);
-  let rezzy5 = new RezzyCreature('colorpicker20006', 3);
-  let rezzy6 = new RezzyCreature('colorpicker20007', 8);
-  let rezzy7 = new RezzyCreature('colorpicker20008', 10);
-  let rezzy8 = new RezzyCreature('colorpicker20009', 12);
-  let rezzy9 = new RezzyCreature('colorpicker200010', 20);
-  let rezzy10 = new RezzyCreature('colorpicker200011', 2);
-  let rezzy11 = new RezzyCreature('colorpicker200012', 7);
-  let rezzy12 = new RezzyCreature('colorpicker200013', 9);
-  let rezzy13 = new RezzyCreature('colorpicker200014', 16);
-  let rezzy14 = new RezzyCreature('colorpicker200015', 18);
-  let rezzy15 = new RezzyCreature('colorpicker200016', 1);
-  let rezzy16 = new RezzyCreature('colorpicker200017', 5);
-  let rezzy17 = new RezzyCreature('colorpicker200018', 6);
-  let rezzy18 = new RezzyCreature('colorpicker200019', 15);
-  let rezzy19 = new RezzyCreature('colorpicker200020', 19);
+  let rezzy0 = new RezzyCreature('Archaeopteryx', 4);
+  let rezzy1 = new RezzyCreature('Meganeura', 11);
+  let rezzy2 = new RezzyCreature('Cycad', 13);
+  let rezzy3 = new RezzyCreature('Chocolate Cosmos', 14);
+  let rezzy4 = new RezzyCreature('Dodo', 17);
+  let rezzy5 = new RezzyCreature('Woolly_Mammoth', 3);
+  let rezzy6 = new RezzyCreature('Homo_Floresiensis', 8);
+  let rezzy7 = new RezzyCreature('Hallucigenia', 10);
+  let rezzy8 = new RezzyCreature('Paraceratherium', 12);
+  let rezzy9 = new RezzyCreature('Trilobite', 20);
+  let rezzy10 = new RezzyCreature('Triceratops', 2);
+  let rezzy11 = new RezzyCreature('Pterosaur Anurognathus', 7);
+  let rezzy12 = new RezzyCreature('Megalonyx', 9);
+  let rezzy13 = new RezzyCreature('Beibeilong', 16);
+  let rezzy14 = new RezzyCreature('Ornithomimus', 18);
+  let rezzy15 = new RezzyCreature('Tyrannosaurus_Rex', 1);
+  let rezzy16 = new RezzyCreature('Diatryma', 5);
+  let rezzy17 = new RezzyCreature('Sabertooth_Tiger', 6);
+  let rezzy18 = new RezzyCreature('Anomalocaris', 15);
+  let rezzy19 = new RezzyCreature('Shastasaurus', 19);
 
 
   let rezziesownedarraybeach = [];
