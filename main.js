@@ -18,8 +18,6 @@ welcomediv.appendChild(startbutton);
 startbutton.id = 'start';
 startbutton.innerText = 'Start';
 
-
-
 // // ** Welcome div remove listen handler ** //
 let welcomeclear = function() {
   welcomediv.style.visibility = 'hidden';
@@ -65,10 +63,3 @@ let submenus = function() {
 };
 
 submenus();
-
-
-
-
-
-
-

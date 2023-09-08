@@ -16,15 +16,7 @@ let counter_array = [];
 let location_odds_array = [];
 let rezzies_catalog = [];
 
-
 let currentdate = new Date();
-
-// let datetime = currentdate.getDate() + '/'
-//                 + (currentdate.getMonth()+1)  + '/'
-//                 + currentdate.getFullYear() + ' @ '
-//                 + currentdate.getHours() + ':'
-//                 + currentdate.getMinutes() + ':'
-//                 + currentdate.getSeconds();
 
 function addMinutes(date, minutes) {
   date.setMinutes(date.getMinutes() + minutes);
@@ -58,22 +50,15 @@ function counter_array_load(){
   }
 }
 
-
-
 counter_array_load();
-
 
 let countDownArray = counter_array[0];
 let searchrounds = counter_array[1];
 
-
-
 // ** Timer ** //
 // Set the date we're counting down to
 
-
 let countDownDate = new Date(countDownArray).getTime();
-
 
 // Update the count down every 1 second
 let x = setInterval(function() {
@@ -106,7 +91,6 @@ let x = setInterval(function() {
 
 counts.innerHTML = searchrounds + ' Remaing';
 
-
 // ** home link ** //
 
 let homelinkrun = function() {
@@ -116,14 +100,12 @@ let homelinkrun = function() {
   homelink.innerText = 'home';
 };
 
-
 let homebuttonrun = function() {
   let homebutton = document.createElement('div');
   scroungemenu.appendChild(homebutton);
   homebutton.id = 'homebutton';
   homelinkrun();
 };
-
 
 // ** Profile ** //
 
@@ -153,7 +135,6 @@ function profile(rezzytoshow){
   scroungemenu.appendChild(rezzytext);
 }
 
-
 // ** Rezzy Generator ** //
 
 function indexnumber() {
@@ -175,7 +156,7 @@ function rezzyload(){
     let animationgif = document.createElement('img');
     animationgif.src = 'images/wait.gif';
     rezzyloadinput.appendChild(animationgif);
-    setTimeout(rezzyadder, 1000);
+    setTimeout(rezzyadder, 3000);
   }
 }
 
@@ -288,7 +269,7 @@ let rezzygenerator = function () {
   } else {
     rezzyloadinput.innerHTML = '';
     console.log('failure');
-    setTimeout(rezzyfail, 1000);
+    setTimeout(rezzyfail, 500);
   }
   if (searchrounds > 0){
     searchrounds--;
@@ -302,10 +283,7 @@ let rezzygenerator = function () {
 
 // ** Scrounge Click Listener ** //
 
-
 scroungebuttondiv.addEventListener('click', rezzygenerator);
-
-
 
 //** Helper functions (Random Generator, image generator) */   For redesign with any variable number
 
@@ -315,16 +293,6 @@ function randomarraynumber(){
 }
 
 // ** Location success odds generator ** //
-  // 35% - 1-100
-  // 40% - 101-200
-  // 45% - 201-300
-  // 50% - 301-400
-  // 55% - 401-500
-  // 60% - 501-600
-  // 65% - 601-700
-  // 70% - 701-800
-  // 75% - 801-900
-  // 80% - 901-1000
 
 function randompercentagenumber() {
   let pullrandomnumber = randomarraynumber();
@@ -364,9 +332,7 @@ function randompercentagenumber() {
   }
 }
 
-
 let locationodds_cache = JSON.parse(localStorage.getItem('stored_location_odds_array'));
-
 
 if (locationodds_cache){
   for(let i = 0; i < locationodds_cache.length; i++){
@@ -440,7 +406,6 @@ function profileclickhandler(event){
   }
 }
 
-
 catalogsheet.addEventListener('click', profileclickhandler);
 
 //** Constructor */
@@ -468,11 +433,6 @@ if (rezzycache) {
     rezzies_catalog.push(rezzy_array_layer1);
   }
 
-
-
-
-
-
 } else {
   let rezzy0 = new RezzyCreature('Archaeopteryx', 4);
   let rezzy1 = new RezzyCreature('Meganeura', 11);
@@ -495,7 +455,6 @@ if (rezzycache) {
   let rezzy18 = new RezzyCreature('Anomalocaris', 15);
   let rezzy19 = new RezzyCreature('Shastasaurus', 19);
 
-
   let rezziesownedarraybeach = [];
   let rezziesownedarraymountain = [];
   let rezziesownedarrayquarry = [];
@@ -508,6 +467,5 @@ if (rezzycache) {
 
   rezzies_catalog.push(rezziesownedarraybeach,rezziesownedarraymountain, rezziesownedarrayquarry, rezziesownedarrayvalley);
 }
-
 
 catalogsheetrender();

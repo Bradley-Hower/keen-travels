@@ -103,6 +103,8 @@ At the top, near the countdowns:
 
 Images Sources:
 
+http://almanaquedabiblia.com.br/estrela-de-belem/
+
 https://commons.wikimedia.org/wiki/File:Cala_Coloritze_vom_Land.JPG
 
 https://upload.wikimedia.org/wikipedia/commons/f/f2/Valle_della_Luna%2C_Aggius%2C_Province_of_Olbia-Tempio%2C_Sardinia%2C_Italy_-_panoramio.jpg
