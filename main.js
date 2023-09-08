@@ -4,8 +4,10 @@
 
 let mainpage = document.getElementById('main-page');
 
-
 // ** Welcome div ** //
+
+mainpage.innerText = '';
+
 let welcomediv = document.createElement('div');
 mainpage.appendChild(welcomediv);
 welcomediv.id = 'welcomediv';
@@ -17,6 +19,7 @@ startbutton.id = 'start';
 startbutton.innerText = 'Start';
 
 
+
 // // ** Welcome div remove listen handler ** //
 let welcomeclear = function() {
   welcomediv.style.visibility = 'hidden';
@@ -24,7 +27,6 @@ let welcomeclear = function() {
 };
 
 startbutton.addEventListener('click', welcomeclear);
-
 
 // ** Location Menus ** //
 
@@ -63,3 +65,10 @@ let submenus = function() {
 };
 
 submenus();
+
+
+
+
+
+
+
