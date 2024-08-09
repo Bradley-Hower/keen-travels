@@ -12,7 +12,7 @@ body {
 
 p {
   text-align: right;
-  padding: 5px 38px;
+  padding: 5px 30px;
   font-size: 15px;
 }
 
@@ -38,8 +38,8 @@ td > img {
   height: 100vh;
   position: fixed;
   background-color: antiquewhite;
-  z-index: 7;
-  right: -460px;
+  z-index: 8;
+  right: -500px;
   top: 0%;
   border: 1px solid black;
   padding: 20px 0 60px 60px;
@@ -59,10 +59,10 @@ td > img {
 
 #catalogsheet-page:hover {
   height: 100vh;
-  width: 500px;
+  width: 520px;
   position: fixed;
   background-color: antiquewhite;
-  z-index: 7;
+  z-index: 8;
   right: 0%;
 }
 
@@ -121,10 +121,10 @@ main > img {
   width: 300px;
   height: 35px;
   font-size: 25px;
-  right: 50%;
+  left: calc(50% - 150px);
   text-align: center;
   position: fixed;
-  z-index: 8;
+  z-index: 7;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   background-color: white;
   border: 3px solid white;
@@ -137,10 +137,10 @@ main > img {
   width: 225px;
   height: 35px;
   font-size: 25px;
-  left: 50%;
+  left: calc(50% - 385px);
   text-align: center;
   position: fixed;
-  z-index: 8;
+  z-index: 7;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   background-color: white;
   border: 3px solid white;
@@ -153,10 +153,10 @@ main > img {
   width: 250px;
   height: 35px;
   font-size: 25px;
-  right: 23.7%;
+  left: calc(50% + 160px);
   text-align: center;
   position: fixed;
-  z-index: 8;
+  z-index: 7;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
   background-color: white;
   border: 3px solid white;

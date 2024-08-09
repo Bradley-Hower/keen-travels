@@ -60,6 +60,7 @@ At the top, near the countdowns:
 + Changes all scrounge probabilities for that day to 100%.
 
 ## File Structure
+```
 ..
 ├── index.html
 ├── css
@@ -68,6 +69,7 @@ At the top, near the countdowns:
 └── js
     ├── app.js
     └── catalog.js
+```
 
 ## Wireframess
 
@@ -94,12 +96,28 @@ At the top, near the countdowns:
 ## Versions
 
 0.1.0 - Set basic site framework. Completed HTML file and created the following files: reset.css, style.css, app.js, catalog.js, license, readme.md, requirements.md, .gitignore, .eslintrc.json.
+
 0.2.0 - Scrounge. Randomized Rezzy draw.
+
 0.2.0 - Set counters, time and draws remaining.
+
 0.3.0 - Profiles for Rezzies.
+
 0.4.0 - Catalog created.
+
 0.5.0 - Profile images.
-1.0.0 - Fully working. 
+
+1.0.0 - Fully working.
+
+1.1
+- Z-index of catalog now higher than top buttons
+- Zone labels for catalog
+- Top buttons - better alignment
+- Memory that start was clicked
+- Only able to see owned cards
+- Correct clock add minutes issue
+
+---
 
 Images Sources:
 

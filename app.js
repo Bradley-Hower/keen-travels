@@ -23,7 +23,7 @@ function addMinutes(date, minutes) {
   return date;
 }
 
-let newDate = addMinutes(currentdate, 1);
+let newDate;
 
 function counter_array_load(){
   let globalcache = JSON.parse(localStorage.getItem('stored_counter_array'));
@@ -32,21 +32,20 @@ function counter_array_load(){
     let storedtime = new Date(globalcache[0]).getTime();
     let distance = storedtime - currentdate;
     if (distance < -1000){
-      counter_array[0] = addMinutes(currentdate, 1);
+      counter_array[0] = addMinutes(currentdate, 2);
       counter_array[1] = 25;
-      let globalcache1 = JSON.stringify(counter_array);
-      localStorage.setItem('stored_counter_array', globalcache1);
+      let globalcache = JSON.stringify(counter_array);
+      localStorage.setItem('stored_counter_array', globalcache);
     } else {
       counter_array[0] = globalcache[0];
       counter_array[1] = globalcache[1];
     }
   } else {
-    let timestart = newDate;
     let rounds = 25;
-    counter_array[0] = timestart;
+    counter_array[0] = addMinutes(currentdate, 2);
     counter_array[1] = rounds;
-    let globalcache2 = JSON.stringify(counter_array);
-    localStorage.setItem('stored_counter_array', globalcache2);
+    let globalcache = JSON.stringify(counter_array);
+    localStorage.setItem('stored_counter_array', globalcache);
   }
 }
 
@@ -110,6 +109,17 @@ let homebuttonrun = function() {
 // ** Profile ** //
 
 function profile(rezzytoshow){
+  let profilelabel;
+
+  if (rezzytoshow.label == 'B')
+    profilelabel = 'Beach';
+  if (rezzytoshow.label == 'M')
+    profilelabel = 'Mountain';
+  if (rezzytoshow.label == 'Q')
+    profilelabel = 'Quarry';
+  if (rezzytoshow.label == 'V')
+    profilelabel = 'Valley';
+
   let profileframe = document.createElement('div');
   profileframe.id = 'profileframe';
   profileframe.innerText = rezzytoshow.name;
@@ -126,7 +136,7 @@ function profile(rezzytoshow){
 
   let rezzycategory = document.createElement('div');
   rezzycategory.id = 'rezzycategory';
-  rezzycategory.innerText = `${submenutitle.innerText}`;
+  rezzycategory.innerText = `${profilelabel}`;
   scroungemenu.appendChild(rezzycategory);
 
   let rezzytext = document.createElement('div');
@@ -350,7 +360,7 @@ if (locationodds_cache){
 function catalogsheetrender(){
   let catalogtableR1 = document.createElement('p');
   catalogsheet.appendChild(catalogtableR1);
-  catalogtableR1.innerText = 'Count Rank';
+  catalogtableR1.innerText = 'Count | Rank | Place';
 
   for(let i = 0; i < rezzies_catalog.length; i++){
     for(let j = 0; j < rezzies_catalog[i].length; j++){
@@ -382,6 +392,10 @@ function catalogsheetrender(){
       let razzydatacheckrank = document.createElement('td');
       razzydatarow.appendChild(razzydatacheckrank);
       razzydatacheckrank.innerText = rezzies_catalog[i][j].rank;
+
+      let razzydatalabel = document.createElement('td');
+      razzydatarow.appendChild(razzydatalabel);
+      razzydatalabel.innerText = rezzies_catalog[i][j].label;
     }
   }
 }
@@ -394,7 +408,10 @@ function profileclickhandler(event){
   for(let i = 0; i < rezzies_catalog.length; i++){
     for(let j = 0; j < rezzies_catalog[i].length; j++){
       if (rezzies_catalog[i][j].name === clickedimage){
-        profile(rezzies_catalog[i][j]);
+        if (rezzies_catalog[i][j].count > 0)
+          profile(rezzies_catalog[i][j]);
+        else
+          profile(rezzyunknown)
       }
     } 
   }
@@ -404,11 +421,12 @@ catalogsheet.addEventListener('click', profileclickhandler);
 
 //** Constructor */
 
-function RezzyCreature(imagename, rank, image_ext = 'png'){
+function RezzyCreature(imagename, rank, label, image_ext = 'png'){
   this.name = imagename;
   this.image = `images/${imagename}.${image_ext}`;
   this.count = 0;
   this.rank = rank;
+  this.label = label;
 }
 
 // ** Instantiation ** //
@@ -422,32 +440,33 @@ if (rezzycache) {
       let reconstructedrezziesowned = new RezzyCreature(rezzycache[i][j].name);
       reconstructedrezziesowned.count = rezzycache[i][j].count;
       reconstructedrezziesowned.rank = rezzycache[i][j].rank;
+      reconstructedrezziesowned.label = rezzycache[i][j].label;
       rezzy_array_layer1.push(reconstructedrezziesowned);
     }
     rezzies_catalog.push(rezzy_array_layer1);
   }
 
 } else {
-  let rezzy0 = new RezzyCreature('Archaeopteryx', 4);
-  let rezzy1 = new RezzyCreature('Meganeura', 11);
-  let rezzy2 = new RezzyCreature('Cycad', 13);
-  let rezzy3 = new RezzyCreature('Chocolate Cosmos', 14);
-  let rezzy4 = new RezzyCreature('Dodo', 17);
-  let rezzy5 = new RezzyCreature('Woolly_Mammoth', 3);
-  let rezzy6 = new RezzyCreature('Homo_Floresiensis', 8);
-  let rezzy7 = new RezzyCreature('Hallucigenia', 10);
-  let rezzy8 = new RezzyCreature('Paraceratherium', 12);
-  let rezzy9 = new RezzyCreature('Trilobite', 20);
-  let rezzy10 = new RezzyCreature('Triceratops', 2);
-  let rezzy11 = new RezzyCreature('Pterosaur Anurognathus', 7);
-  let rezzy12 = new RezzyCreature('Megalonyx', 9);
-  let rezzy13 = new RezzyCreature('Beibeilong', 16);
-  let rezzy14 = new RezzyCreature('Ornithomimus', 18);
-  let rezzy15 = new RezzyCreature('Tyrannosaurus_Rex', 1);
-  let rezzy16 = new RezzyCreature('Diatryma', 5);
-  let rezzy17 = new RezzyCreature('Sabertooth_Tiger', 6);
-  let rezzy18 = new RezzyCreature('Anomalocaris', 15);
-  let rezzy19 = new RezzyCreature('Shastasaurus', 19);
+  let rezzy0 = new RezzyCreature('Archaeopteryx', 4, 'B');
+  let rezzy1 = new RezzyCreature('Meganeura', 11, 'B');
+  let rezzy2 = new RezzyCreature('Cycad', 13, 'B');
+  let rezzy3 = new RezzyCreature('Chocolate Cosmos', 14, 'B');
+  let rezzy4 = new RezzyCreature('Dodo', 17, 'B');
+  let rezzy5 = new RezzyCreature('Woolly_Mammoth', 3, 'M');
+  let rezzy6 = new RezzyCreature('Homo_Floresiensis', 8, 'M');
+  let rezzy7 = new RezzyCreature('Hallucigenia', 10, 'M');
+  let rezzy8 = new RezzyCreature('Paraceratherium', 12, 'M');
+  let rezzy9 = new RezzyCreature('Trilobite', 20, 'M');
+  let rezzy10 = new RezzyCreature('Triceratops', 2, 'Q');
+  let rezzy11 = new RezzyCreature('Pterosaur Anurognathus', 7, 'Q');
+  let rezzy12 = new RezzyCreature('Megalonyx', 9, 'Q');
+  let rezzy13 = new RezzyCreature('Beibeilong', 16, 'Q');
+  let rezzy14 = new RezzyCreature('Ornithomimus', 18, 'Q');
+  let rezzy15 = new RezzyCreature('Tyrannosaurus_Rex', 1, 'V');
+  let rezzy16 = new RezzyCreature('Diatryma', 5, 'V');
+  let rezzy17 = new RezzyCreature('Sabertooth_Tiger', 6, 'V');
+  let rezzy18 = new RezzyCreature('Anomalocaris', 15, 'V');
+  let rezzy19 = new RezzyCreature('Shastasaurus', 19, 'V');
 
   let rezziesownedarraybeach = [];
   let rezziesownedarraymountain = [];
@@ -461,5 +480,7 @@ if (rezzycache) {
 
   rezzies_catalog.push(rezziesownedarraybeach,rezziesownedarraymountain, rezziesownedarrayquarry, rezziesownedarrayvalley);
 }
+
+let rezzyunknown = new RezzyCreature('You do not own this Rezzy');
 
 catalogsheetrender();
