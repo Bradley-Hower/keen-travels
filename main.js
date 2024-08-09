@@ -19,12 +19,22 @@ startbutton.id = 'start';
 startbutton.innerText = 'Start';
 
 // // ** Welcome div remove listen handler ** //
-let welcomeclear = function() {
-  welcomediv.style.visibility = 'hidden';
-  // localStorage.setItem('welcome', "welcomediv.style.visibility = 'hidden';");
-};
+document.addEventListener('DOMContentLoaded', function() {
+    var welcomediv = document.getElementById('welcomediv');
+    var startButton = document.getElementById('start');
 
-startbutton.addEventListener('click', welcomeclear);
+    // Check if the user has clicked "Start" before
+    if (localStorage.getItem('started') === 'true') {
+        welcomediv.style.visibility = 'hidden'; // Ensure the div is hidden
+    } else {
+        welcomediv.style.visibility = 'visible'; // Show the div
+    }
+
+    startButton.addEventListener('click', function() {
+        localStorage.setItem('started', 'true'); // Mark as clicked
+        welcomediv.style.visibility = 'hidden'; // Hide the div
+    });
+});
 
 // ** Location Menus ** //
 
