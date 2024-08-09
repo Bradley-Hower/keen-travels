@@ -60,6 +60,7 @@ At the top, near the countdowns:
 + Changes all scrounge probabilities for that day to 100%.
 
 ## File Structure
+```
 ..
 ├── index.html
 ├── css
@@ -68,6 +69,7 @@ At the top, near the countdowns:
 └── js
     ├── app.js
     └── catalog.js
+```
 
 ## Wireframess
 
